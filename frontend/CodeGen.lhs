@@ -39,7 +39,7 @@ Assembley code
 Is the given token a register?
 
 > isReg :: String -> Bool
-> isReg ('r':rest) = all isDigit rest
+> isReg ('x':rest) = all isDigit rest
 > isReg other      = False
 
 Obtain all register names in a code listing (without duplicates).
@@ -228,7 +228,7 @@ Translation
 >    , "#define _TESTCASE_H_"
 >    , ""
 >    , "#define NUM_PROCESSES " ++ show numProcesses
->    , "#define NUM_ITERATIONS 1000"
+>    , "#define NUM_ITERATIONS 100"
 >    , "#define NUM_VARS " ++ show numVars
 >    , "#define NUM_LOCS 65536"
 >    , "#define LOC_GRAIN " ++ show (testGrain test)
