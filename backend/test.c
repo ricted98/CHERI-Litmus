@@ -16,6 +16,7 @@ test_t test;
 
 void test_init(uint32_t* seed)
 {
+  //put_string("test_init started\r\n");
   // Randomize variable locations
   uint32_t rs[NUM_VARS];
   for (int i = 0; i < NUM_VARS; i++) {

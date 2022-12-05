@@ -1,22 +1,23 @@
 // Code specific to the rocket-chip platform
 
 #include "platform.h"
+#include "uart.h"
 
 // =========
 // DRAM Base
 // =========
 
-char const* HEAP_BASE = (char const*) 0x100000;
+char const* HEAP_BASE = (char const*) 0x80001000;
 
 // ==============
 // Console output
 // ==============
 
 // Character buffer
-static char consoleBuffer[64] __attribute__((aligned(64)));
-static uint64_t consoleBufferLen = 0;
+/*static char consoleBuffer[64] __attribute__((aligned(64)));
+static uint64_t consoleBufferLen = 0;*/
 
-void flush()
+/*void flush()
 {
   volatile uint64_t cmd[8] __attribute__((aligned(64)));
 
@@ -32,19 +33,27 @@ void flush()
       "1:                       \n"
       "csrrw  a0, 0x7c1, 0      \n"
       "beqz   a0, 1b            \n"
-    : /* output operands */
-    : /* input operands */
+    : // output operands 
+    : // input operands 
       "r"(cmd)
-    : /* clobbered registers */
+    : // clobbered registers 
       "a0"
     );
 
     consoleBufferLen = 0;
   }
-}
+}*/
+/*void flush()
+{
+  //consoleBuffer[consoleBufferLen++] = '\0';
+  print_uart(consoleBuffer,consoleBufferLen);
+  consoleBufferLen = 0;
 
+}*/
 void put_char(char c)
 {
-  consoleBuffer[consoleBufferLen++] = c;
-  if (c == '\n' || consoleBufferLen == sizeof(consoleBuffer)) flush();
+
+  /*consoleBuffer[consoleBufferLen++] = c;
+  if (c == '\n' || consoleBufferLen == sizeof(consoleBuffer)) flush();*/
+  write_serial(c);
 }

@@ -1,4 +1,4 @@
-HARTID=0xf15
+HARTID=0xf14
 TO_HOST=0x7c0
 
   # Get hardware thread id
@@ -14,15 +14,5 @@ TO_HOST=0x7c0
 
   # Jump-and-link to main
   jal main
-
-  # Delay to flush UART in emulation
-  li a0, 0xa000
-delay:
-  addi a0, a0, -1
-  bnez a0, delay
-
-  # Exit with success
-  li a5, 1
-  csrw TO_HOST, a5
 
   j .

@@ -9,6 +9,6 @@ void arch_barrier_up();
 void arch_barrier_down();
 
 int arch_get_process_id();
-uint32_t arch_get_counter();
+/*uint32_t arch_get_counter();*/
 
 #endif

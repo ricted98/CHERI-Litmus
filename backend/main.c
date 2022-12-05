@@ -1,6 +1,8 @@
+
 #include "io.h"
 #include "log.h"
 #include "platform.h"
+#include "uart.h"
 #include "arch.h"
 #include "rand.h"
 #include "test.h"
@@ -14,11 +16,13 @@ int main()
   if (me >= NUM_PROCESSES) while (1);
 
   if (me == 0) {
+    init_uart(50000000, 115200*4);
+    //put_string("Hello World!\n");
     log_init();
   }
 
   // Random seed
-  uint32_t seed = 0;
+  uint32_t seed = 27298;
 
   for (int i = 0; i < NUM_ITERATIONS; i++) {
     if (me == 0) test_init(&seed);
@@ -27,9 +31,10 @@ int main()
   }
 
   if (me == 0) {
-    put_string("Observed outcomes:\n");
+    //put_string("Observed outcomes:\n");
     log_display();
-    flush();
+    put_string("Time\n");
+    //flush();
   }
 
   return 0;

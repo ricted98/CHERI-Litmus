@@ -1,0 +1,4 @@
+log/
+binaries/*.dump
+binaries/*.elf
+binaries-prova/

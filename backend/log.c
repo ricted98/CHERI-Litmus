@@ -5,6 +5,8 @@
 #include "heap.h"
 #include "testcase.h"
 
+#define DEBUG 0
+
 // ================
 // Global variables
 // ================
@@ -17,6 +19,7 @@ log_t global_log;
 
 void log_init()
 {
+  //put_string("log_init started\r\n");
   global_log.hash_table = (log_entry_t*) HASH_TABLE_BASE;
   global_log.num_collisions = 0;
   global_log.num_entries = 0;
@@ -61,15 +64,31 @@ void log_add_outcome()
   uint32_t h = hash( (uint8_t *) test.outcome
                    , LEN_OUTCOME*sizeof(var_t)
                    , 0 );
+#if DEBUG
+  var_t sought[] = OUTCOME_SOUGHT;
+#endif
   h = h % HASH_TABLE_SIZE;
   for (int i = 0; i < HASH_TABLE_SIZE; i++) {
     log_entry_t *entry = global_log.hash_table + h;
     if (entry->count == 0) { /* New entry */
-      for (int j = 0; j < LEN_OUTCOME; j++)
+#if DEBUG
+      int found = 1;
+#endif
+      for (int j = 0; j < LEN_OUTCOME; j++){
         entry->outcome[j] = test.outcome[j];
+#if DEBUG
+        if (entry->outcome[j] != sought[j]) found = 0;
+#endif
+      }
       entry->count = 1;
       global_log.num_entries++;
       if (i != 0) global_log.num_collisions++;
+#if DEBUG
+      if (found == 1) {
+        log_display();
+        put_string("Time\n");
+      }
+#endif
       return;
     }
     else {
@@ -110,20 +129,20 @@ void log_display_outcome()
     log_entry_t *entry = global_log.hash_table + i;
     if (entry->count != 0) {
       put_uint64(entry->count);
-      put_string(": ");
+      put_string(":> ");
       int got = 1;
       for (int j = 0; j < LEN_OUTCOME; j++) {
         if (entry->outcome[j] != sought[j]) got = 0;
         put_string(outcome_names[j]);
         put_string("=");
         put_uint32((uint32_t) entry->outcome[j]);
-        put_string(" ");
+        put_string("; ");
       }
       if (got == 1) found = 1;
       put_string("\n");
     }
   }
-  put_string(found ? "OBSERVED\n" : "NOT OBSERVED\n");
+  put_string(found ? "Ok\n" : "No\n");
 }
 
 void log_display_headstart()
@@ -140,6 +159,7 @@ void log_display_headstart()
 
 void log_display()
 {
+  //put_string("log_display started\r\n");
   log_display_outcome();
   #ifdef SHOW_HEADSTARTS
   log_display_headstart();

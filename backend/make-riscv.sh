@@ -1,23 +1,24 @@
 PLATFORM="rocket"
 
-CC="riscv64-unknown-elf-gcc"
-AS="riscv64-unknown-elf-as"
-LD="riscv64-unknown-elf-ld"
-OBJCOPY="riscv64-unknown-elf-objcopy"
-OBJDUMP="riscv64-unknown-elf-objdump"
+CC="/usr/pack/riscv-1.0-kgf/riscv64-gcc-11.2.0/bin/riscv64-unknown-elf-gcc"
+AS="/usr/pack/riscv-1.0-kgf/riscv64-gcc-11.2.0/bin/riscv64-unknown-elf-as"
+LD="/usr/pack/riscv-1.0-kgf/riscv64-gcc-11.2.0/bin/riscv64-unknown-elf-ld"
+OBJCOPY="/usr/pack/riscv-1.0-kgf/riscv64-gcc-11.2.0/bin/riscv64-unknown-elf-objcopy"
+OBJDUMP="/usr/pack/riscv-1.0-kgf/riscv64-gcc-11.2.0/bin/riscv64-unknown-elf-objdump"
 
-OPT="-O2"
-CFLAGS="$OPT -I."
+OPT="-O2 -fno-builtin"          #optimize even more and avoid to use standard c functions
+CFLAGS="$OPT -I. -mcmodel=medany -g"  #include actuar directory to search directories
 LDFLAGS="-G 0 -T $PLATFORM/$PLATFORM.ld"
 
-CFILES="main io log hash rand riscv/arch rocket/platform test"
+CFILES="main io log hash rand riscv/arch rocket/platform rocket/uart test"
 OFILES=""
 for F in $CFILES
 do
   OFILES="$OFILES `basename $F.o`"
-  $CC $CFLAGS -std=gnu99 -Wall -c -o `basename $F.o` $F.c
+  $CC $CFLAGS -std=gnu99 -Wall -c -o `basename $F.o` $F.c  #-std define the standard used
 done
 
 $AS -o entry.o rocket/entry.s
 $LD $LDFLAGS -o main.elf entry.o $OFILES
-elf2hex 16 65536 main.elf > main.hex
+$OBJDUMP -S main.elf > main.dump
+#elf2hex 16 65536 main.elf > 

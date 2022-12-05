@@ -10,20 +10,20 @@
 int arch_get_process_id()
 {
   uint64_t x;
-  asm volatile("csrr %0, 0xf15" : "=r" (x));
+  asm volatile("csrr %0, 0xf14" : "=r" (x));  //CSRRS rd, csr, x0
   return (int) x;
 }
 
 // Hardware counter ===========================================================
 
-uint32_t arch_get_counter()
+/*uint32_t arch_get_counter()
 {
   uint64_t x;
   //asm volatile("csrr %0, 0xf01" : "=r" (x));
   asm volatile("csrr %0, 0xf00" : "=r" (x));
   return (int) x;
 }
-
+*/
 // Barrier synchronisation ====================================================
 
 // Shared variables
@@ -44,9 +44,10 @@ void barrier_wait(
       //"bnez   a0, 1b                     \n"
       "amoadd.d a0, %1, (%0)             \n"
       "2:                                \n"
+      "fence                             \n"
       "ld     a0, 0(%0)                  \n"
       "bne    a0, %2, 2b                 \n"
-      "fence                             \n"
+      
   : /* output operands */
   : /* input operands */
     "r"(barrier),
