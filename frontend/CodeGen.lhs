@@ -185,7 +185,7 @@ Return a chunk of inline assembley for a given process in a test.
 > 
 >     -- Names for temporary registers (i.e. which are not inputs or outputs)
 >     tmpNames   = if   testArch test == "RISCV"
->                  then ["a" ++ show i | i <- [0..7]]
+>                  then ["t" ++ show i | i <- [1..6]]
 >                  else ["$" ++ show i | i <- [4..25]]
 >
 >     -- A substitution to be applied the the litmus assembley listing

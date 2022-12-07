@@ -42,11 +42,11 @@ void barrier_wait(
       //"add    a0, a0, %1                 \n"
       //"sc.d   a0, a0, 0(%0)              \n"
       //"bnez   a0, 1b                     \n"
-      "amoadd.d a0, %1, (%0)             \n"
+      "amoadd.d x6, %1, (%0)             \n"
       "2:                                \n"
       "fence                             \n"
-      "ld     a0, 0(%0)                  \n"
-      "bne    a0, %2, 2b                 \n"
+      "ld     x6, 0(%0)                  \n"
+      "bne    x6, %2, 2b                 \n"
       
   : /* output operands */
   : /* input operands */
@@ -54,7 +54,7 @@ void barrier_wait(
     "r"(incr_amount),
     "r"(reach)
   : /* clobbered registers */
-    "a0"
+    "x6"
   );
 }
 
