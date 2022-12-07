@@ -1,7 +1,5 @@
 RISCV ISA-MP-DEP-SUCCESS
-(*
- MP-style success dependency inserted in load-to-load , Forbid
-*)
+""
 {
 0:x6=x; 0:x8=y;
 1:x6=y; 1:x9=x; 1:x10=z;
@@ -13,6 +11,5 @@ RISCV ISA-MP-DEP-SUCCESS
  ori x7,x0,1 | andi x11,x4,64    ;
  sw x7,0(x8) | add x9,x9,x11     ;
              | lw x5,0(x9)       ; 
-locations [1:x4;]
 exists
 (1:x2=1 /\ 1:x5=0)

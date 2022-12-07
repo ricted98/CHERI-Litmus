@@ -1,4 +1,5 @@
 RISCV RStar-W-WStar
+""
 {
 0:x5=x;
 }
@@ -8,8 +9,5 @@ RISCV RStar-W-WStar
  ori x9,x0,2      ;
  sw  x9,0(x5)     ;
  sc.w x8,x7,0(x5) ;
-
-forall
-  (0:x6=0 /\
-    ((0:x8=0 /\ x=1) \/
-    (not(0:x8=0) /\ x=2)))
+exists
+  (0:x6=0 /\ 0:x8=0 /\ x=1 /\ 0:x8=0 x=2)

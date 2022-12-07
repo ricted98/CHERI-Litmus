@@ -20,6 +20,5 @@ Orig=Fence.w.wdWW Rfe DpDatadW WsLeave WsBack Rfi DpAddrdR Fre
              | xor x11,x10,x10 |             ;
              | add x14,x13,x11 |             ;
              | lw x12,0(x14)   |             ;
-locations [z;1:x10;]
 exists
 (1:x5=1 /\ 1:x12=0)

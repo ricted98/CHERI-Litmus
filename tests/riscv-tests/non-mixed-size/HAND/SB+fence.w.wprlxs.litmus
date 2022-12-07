@@ -1,9 +1,10 @@
 RISCV SB+fence.w.wprlxs
+""
 {
 0:x6=x; 0:x8=y;
 1:x6=y; 1:x8=x;
 }
-(* Tests Allowed/Forbid if some W/no W in amoor ...,x0,.. *)
+""
 P0                 | P1                    ;
  ori x5,x0,1        | ori x5,x0,1           ;
  sw x5,0(x6)        | sw x5,0(x6)           ;

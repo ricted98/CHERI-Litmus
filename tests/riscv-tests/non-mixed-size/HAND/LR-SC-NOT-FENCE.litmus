@@ -1,10 +1,6 @@
 RISCV LR-SC-NOT-FENCE
 
-(* 
-  Original test by Sizhuo Zhang:
-  LR/SC with aqrl qualifier does not suffice to implement x86 locked
-  instructions (which have implied fences).
-*)
+""
 
 {
 0:x6=a; 0:x8=b; 0:x10=c;
@@ -17,6 +13,5 @@ RISCV LR-SC-NOT-FENCE
  lr.w.aqrl x12,0(x10)    | lr.w.aqrl x12,0(x10)    ;
  sc.w.aqrl x11,x5,0(x10) | sc.w.aqrl x11,x5,0(x10) ;
  lw x7,0(x8)              | lw x7,0(x8)              ;
-
 exists (c=1 /\ d=1 /\ 0:x7=0 /\ 1:x7=0)
 

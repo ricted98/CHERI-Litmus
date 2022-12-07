@@ -1,6 +1,6 @@
 RISCV ISA-S-DEP-DATA-SUCCESS
 
-(* Data+Success dependency on P1, variation on an idea by D. Lustig,Forbid *)
+""
 {
 1:s0=x; 1:s1=y; 1:s2=z;
 0:s0=x; 0:s1=y;
@@ -13,5 +13,4 @@ RISCV ISA-S-DEP-DATA-SUCCESS
  sw t1,0(s0) | andi t2,a1,64     ;
              | addi t2,t2,2      ;
              | sw t2,0(s1)       ;
-locations [1:a1;]
-~exists 1:a0=1 /\ y=1
+exists (1:a0=1 /\ y=1)

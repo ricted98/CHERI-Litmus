@@ -1,6 +1,6 @@
 RISCV Luc02
 Orig=PodWWARAR RfeARAR PodRWARP RfiPAR FreARAR
-(* Difference with axiomatic model and with SC *)
+""
 {
 0:x6=x; 0:x8=y;
 1:x6=y; 1:x8=x;

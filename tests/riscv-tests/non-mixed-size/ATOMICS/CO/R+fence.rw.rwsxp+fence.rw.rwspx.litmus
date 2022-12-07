@@ -1,12 +1,11 @@
 RISCV R+fence.rw.rwsxp+fence.rw.rwspx
-"Fence.rw.rwsWWXP Wse Fence.rw.rwsWRPX FreXX"
-Cycle=Wse Fence.rw.rwsWRPX FreXX Fence.rw.rwsWWXP
+"Fence.rw.rwsWWXP Coe Fence.rw.rwsWRPX FreXX"
+Cycle=Coe Fence.rw.rwsWRPX FreXX Fence.rw.rwsWWXP
 Relax=FreXX
-Safe=Wse Fence.rw.rwsWW Fence.rw.rwsWR
-Generator=diy7 (version 7.51+4(dev))
-Prefetch=
-Com=Ws Fr
-Orig=Fence.rw.rwsWWXP Wse Fence.rw.rwsWRPX FreXX
+Safe=Coe Fence.rw.rwsWW Fence.rw.rwsWR
+Generator=diy7 (version 7.56.2)
+Com=Co Fr
+Orig=Fence.rw.rwsWWXP Coe Fence.rw.rwsWRPX FreXX
 {
 0:x5=x; 0:x6=1; 0:x9=2;
 1:x5=3; 1:x6=x;
@@ -16,4 +15,4 @@ Orig=Fence.rw.rwsWWXP Wse Fence.rw.rwsWRPX FreXX
  sc.w x8,x6,0(x5) | fence rw,rw      ;
  fence rw,rw      | lr.w x7,0(x6)    ;
  sw x9,0(x5)      | sc.w x8,x7,0(x6) ;
-exists (not (x=2 /\ (0:x7=3 /\ (0:x8=0 /\ (1:x8=0 /\ (1:x7=1 \/ 1:x7=2 \/ 1:x7=3) \/ 1:x8=1 /\ (1:x7=3 \/ 1:x7=2 \/ 1:x7=1)) \/ 0:x8=1 /\ (1:x7=2 /\ (1:x8=1 \/ 1:x8=0) \/ 1:x7=3 /\ (1:x8=0 \/ 1:x8=1))) \/ 0:x7=0 /\ (0:x8=0 /\ (1:x7=2 /\ (1:x8=1 \/ 1:x8=0) \/ 1:x7=3 /\ (1:x8=0 \/ 1:x8=1)) \/ 0:x8=1 /\ (1:x7=2 /\ (1:x8=0 \/ 1:x8=1) \/ 1:x7=3 /\ (1:x8=1 \/ 1:x8=0)))) \/ 0:x7=0 /\ 1:x7=3 /\ x=3 /\ (0:x8=0 /\ (1:x8=1 \/ 1:x8=0) \/ 0:x8=1 /\ (1:x8=0 \/ 1:x8=1))))
+exists (x=0 /\ 0:x8=0 /\ 0:x7=0 /\ 1:x8=0 /\ 1:x7=0)

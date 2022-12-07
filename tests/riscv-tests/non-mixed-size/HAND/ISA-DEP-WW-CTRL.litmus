@@ -1,5 +1,5 @@
 RISCV ISA-DEP-WW-CTRL
-(* SC-W to W control dependency through result register *)
+""
 {
 0:x5=x; 0:x10=y;
 1:x6=y; 1:x9=x;

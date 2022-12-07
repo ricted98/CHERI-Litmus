@@ -1,12 +1,6 @@
 RISCV ISA-MP-DEP-ADDR-LR-FAIL
-(*
-  In case the sc fails should there be an address dependency from
-  P1 initial load to P1 final load.
-  the "reservation" register.
-*)
+""
 {
-int z;
-int *y = &z;
 0:s3=z; 0:s2=y; 0:s1=x;
 1:s3=z; 1:s2=y; 1:s1=x;
 }
@@ -17,4 +11,4 @@ int *y = &z;
  sd s1,0(s2) | xor  t3,t2,t2    ;
              | add s4,s3,t3     ;            
              | lw t4,0(s4)      ;
-exists 1:a1=x /\ 1:t4=0 /\ not(1:t2=0)
+exists (1:a1=x /\ 1:t4=0 /\ 1:t2=0)

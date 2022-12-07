@@ -3,8 +3,7 @@ RISCV CoWR0+fence.rw.rwspx
 Cycle=Fence.rw.rwsWRPX FreXP
 Relax=Fence.rw.rwsWRPX
 Safe=Fre
-Generator=diy7 (version 7.51+4(dev))
-Prefetch=
+Generator=diy7 (version 7.56.2)
 Com=Fr
 Orig=Fence.rw.rwsWRPX FreXP
 {
@@ -15,4 +14,4 @@ Orig=Fence.rw.rwsWRPX FreXP
  fence rw,rw      ;
  lr.w x7,0(x6)    ;
  sc.w x8,x7,0(x6) ;
-exists (not (0:x7=1 /\ x=1 /\ (0:x8=0 \/ 0:x8=1)))
+exists (x=0 /\ 0:x8=0 /\ 0:x7=0)

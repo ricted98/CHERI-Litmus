@@ -1,9 +1,5 @@
 RISCV Release-ordering
-(*
-Model gmo constraints enforce sophicated contradictions on P0:
-eg: by P1      d -gmo-> a
-    by P2,P3   a -gmo-> d
-*)
+""
 {
 0:x6=z; 0:x8=u; 0:x10=x; 0:x12=y;
 1:x6=y; 1:x8=z;

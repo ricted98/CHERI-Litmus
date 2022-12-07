@@ -1,7 +1,6 @@
 RISCV ISA03+SIMPLE+BIS
 
-(* ISA V2.3, Fig 1.3, spinlock, adapt, test mutual exclusion,
-   with relaxed swaps *)
+""
 
 {
 0:a0=lock; 0:a5=a;
@@ -14,7 +13,4 @@ RISCV ISA03+SIMPLE+BIS
  addi t1,t1,1            | addi t1,t1,1            ;
  sw t1,0(a5)             | sw t1,0(a5)             ;
  amoswap.w    x0,x0,(a0) | amoswap.w    x0,x0,(a0) ;
-
-
-filter (0:t0=0 /\ 1:t0=0)
 exists ~(a = 2)

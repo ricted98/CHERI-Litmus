@@ -1,5 +1,5 @@
 RISCV C-Will02
-(* A la AArch64 compilation of C-Will02 (trailing sync) *)
+""
 { ok=1;
 0:x6=x; 0:x7=y;
 1:x6=y; 1:x8=x;

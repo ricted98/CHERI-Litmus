@@ -10,5 +10,5 @@ RISCV S+fence.w.w+fence.tso
  fence w,w   | ori x7,x0,1 ;
  ori x7,x0,1 | sw x7,0(x8) ;
  sw x7,0(x8) |             ;
-~exists
+exists
 (x=2 /\ 1:x5=1)

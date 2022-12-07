@@ -1,5 +1,5 @@
 RISCV RSW
-(* AKA: MP+fence.rw.rw+addr-pos-addr *)
+""
 "Fence.rw.rwdWW Rfe DpAddrdR PosRR DpAddrdR Fre"
 Generator=diyone7 (version 7.47+2)
 Prefetch=0:x=F,0:y=W,1:y=F,1:x=T

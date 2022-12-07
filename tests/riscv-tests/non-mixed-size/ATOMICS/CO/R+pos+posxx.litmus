@@ -1,12 +1,11 @@
 RISCV R+pos+posxx
-"PosWW WsePX PosWRXX FreXP"
-Cycle=PosWW WsePX PosWRXX FreXP
+"PosWW CoePX PosWRXX FreXP"
+Cycle=PosWW CoePX PosWRXX FreXP
 Relax=PosWRXX
-Safe=Fre Wse PosWW
-Generator=diy7 (version 7.51+4(dev))
-Prefetch=
-Com=Ws Fr
-Orig=PosWW WsePX PosWRXX FreXP
+Safe=Fre Coe PosWW
+Generator=diy7 (version 7.56.2)
+Com=Co Fr
+Orig=PosWW CoePX PosWRXX FreXP
 {
 0:x5=1; 0:x6=x; 0:x7=2;
 1:x5=x; 1:x6=3;
@@ -16,4 +15,4 @@ Orig=PosWW WsePX PosWRXX FreXP
  sw x7,0(x6) | sc.w x8,x6,0(x5)  ;
              | lr.w x9,0(x5)     ;
              | sc.w x10,x9,0(x5) ;
-exists (not (x=2 /\ (1:x7=0 /\ (1:x10=0 /\ (1:x8=0 /\ (1:x9=1 \/ 1:x9=2 \/ 1:x9=3) \/ 1:x8=1 /\ (1:x9=2 \/ 1:x9=1 \/ 1:x9=0)) \/ 1:x10=1 /\ (1:x8=0 /\ (1:x9=3 \/ 1:x9=2 \/ 1:x9=1) \/ 1:x8=1 /\ (1:x9=0 \/ 1:x9=1 \/ 1:x9=2))) \/ 1:x7=1 /\ (1:x10=0 /\ (1:x8=0 /\ (1:x9=3 \/ 1:x9=2) \/ 1:x8=1 /\ (1:x9=1 \/ 1:x9=2)) \/ 1:x10=1 /\ (1:x8=0 /\ (1:x9=2 \/ 1:x9=3) \/ 1:x8=1 /\ (1:x9=2 \/ 1:x9=1))) \/ 1:x7=2 /\ 1:x8=1 /\ 1:x9=2 /\ (1:x10=0 \/ 1:x10=1)) \/ 1:x7=2 /\ 1:x8=0 /\ 1:x9=3 /\ x=3 /\ (1:x10=1 \/ 1:x10=0)))
+exists (x=0 /\ 1:x10=0 /\ 1:x8=0 /\ 1:x7=0 /\ 1:x9=0)

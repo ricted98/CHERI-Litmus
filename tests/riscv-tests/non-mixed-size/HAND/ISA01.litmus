@@ -1,6 +1,6 @@
 RISCV ISA01
 
-(* RISCV V2.3, Fig 1.1 *)
+""
 {
 0:s0 = x; 1:s0 = x;
 }
@@ -12,5 +12,4 @@ sw t2,0(s0)  | sw t5,0(s0) ;
 lw a0,0(s0)  |             ;
 li t3,3      |             ;
 sw t3,0(s0)  |             ;
-
-forall 0:a0=2 \/ 0:a0=4 \/ 0:a0=5
+exists (0:a0=2 /\ 0:a0=4 /\ 0:a0=5)

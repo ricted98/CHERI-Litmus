@@ -1,7 +1,6 @@
 RISCV ISA13+BIS
+""
 {
-uint64_t x;
-uint64_t y;
 
 0:s0=x; 0:s1=y;
 1:s0=x; 1:s1=y;

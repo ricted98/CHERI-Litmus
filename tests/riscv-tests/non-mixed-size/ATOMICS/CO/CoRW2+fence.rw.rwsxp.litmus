@@ -1,12 +1,11 @@
 RISCV CoRW2+fence.rw.rwsxp
-"RfePX Fence.rw.rwsRWXP Wse"
-Cycle=Wse RfePX Fence.rw.rwsRWXP
+"RfePX Fence.rw.rwsRWXP Coe"
+Cycle=Coe RfePX Fence.rw.rwsRWXP
 Relax=RfePX
-Safe=Wse Fence.rw.rwsRW
-Generator=diy7 (version 7.51+4(dev))
-Prefetch=
-Com=Rf Ws
-Orig=RfePX Fence.rw.rwsRWXP Wse
+Safe=Coe Fence.rw.rwsRW
+Generator=diy7 (version 7.56.2)
+Com=Rf Co
+Orig=RfePX Fence.rw.rwsRWXP Coe
 {
 0:x5=1; 0:x6=x;
 1:x5=x; 1:x8=2;
@@ -16,4 +15,4 @@ Orig=RfePX Fence.rw.rwsRWXP Wse
              | sc.w x7,x6,0(x5) ;
              | fence rw,rw      ;
              | sw x8,0(x5)      ;
-exists (not (1:x6=0 /\ (1:x7=0 /\ (x=1 \/ x=2) \/ 1:x7=1 /\ (x=2 \/ x=1)) \/ 1:x6=1 /\ x=2 /\ (1:x7=1 \/ 1:x7=0)))
+exists (x=0 /\ 1:x7=0 /\ 1:x6=0)

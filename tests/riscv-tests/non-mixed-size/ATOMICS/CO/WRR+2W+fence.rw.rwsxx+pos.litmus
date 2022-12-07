@@ -1,12 +1,11 @@
 RISCV WRR+2W+fence.rw.rwsxx+pos
-"RfePX Fence.rw.rwsRRXX FreXP PosWW Wse"
-Cycle=Wse RfePX Fence.rw.rwsRRXX FreXP PosWW
+"RfePX Fence.rw.rwsRRXX FreXP PosWW Coe"
+Cycle=Coe RfePX Fence.rw.rwsRRXX FreXP PosWW
 Relax=Fence.rw.rwsRRXX
-Safe=Rfe Fre Wse PosWW
-Generator=diy7 (version 7.51+4(dev))
-Prefetch=
-Com=Rf Fr Ws
-Orig=RfePX Fence.rw.rwsRRXX FreXP PosWW Wse
+Safe=Rfe Fre Coe PosWW
+Generator=diy7 (version 7.56.2)
+Com=Rf Fr Co
+Orig=RfePX Fence.rw.rwsRRXX FreXP PosWW Coe
 {
 0:x5=1; 0:x6=x;
 1:x5=x;
@@ -18,4 +17,4 @@ Orig=RfePX Fence.rw.rwsRRXX FreXP PosWW Wse
              | fence rw,rw      |             ;
              | lr.w x8,0(x5)    |             ;
              | sc.w x9,x8,0(x5) |             ;
-exists (not (x=3 /\ (1:x7=0 /\ (1:x9=0 /\ (1:x6=0 /\ (1:x8=0 \/ 1:x8=1 \/ 1:x8=2 \/ 1:x8=3) \/ 1:x6=1 /\ (1:x8=3 \/ 1:x8=2 \/ 1:x8=1) \/ 1:x6=2 /\ (1:x8=1 \/ 1:x8=2 \/ 1:x8=3) \/ 1:x6=3 /\ 1:x8=3) \/ 1:x9=1 /\ (1:x6=0 /\ (1:x8=3 \/ 1:x8=2 \/ 1:x8=1 \/ 1:x8=0) \/ 1:x6=1 /\ (1:x8=1 \/ 1:x8=2 \/ 1:x8=3) \/ 1:x6=2 /\ (1:x8=3 \/ 1:x8=2 \/ 1:x8=1) \/ 1:x6=3 /\ 1:x8=3)) \/ 1:x7=1 /\ (1:x9=0 /\ (1:x6=0 /\ (1:x8=3 \/ 1:x8=2 \/ 1:x8=1 \/ 1:x8=0) \/ 1:x6=1 /\ (1:x8=1 \/ 1:x8=2 \/ 1:x8=3) \/ 1:x6=2 /\ (1:x8=3 \/ 1:x8=2 \/ 1:x8=1) \/ 1:x6=3 /\ 1:x8=3) \/ 1:x9=1 /\ (1:x6=0 /\ (1:x8=0 \/ 1:x8=1 \/ 1:x8=2 \/ 1:x8=3) \/ 1:x6=1 /\ (1:x8=3 \/ 1:x8=2 \/ 1:x8=1) \/ 1:x6=2 /\ (1:x8=1 \/ 1:x8=2 \/ 1:x8=3) \/ 1:x6=3 /\ 1:x8=3))) \/ x=1 /\ (1:x7=0 /\ (1:x9=0 /\ (1:x6=0 /\ (1:x8=3 \/ 1:x8=2 \/ 1:x8=1 \/ 1:x8=0) \/ 1:x6=2 /\ (1:x8=1 \/ 1:x8=2 \/ 1:x8=3) \/ 1:x6=3 /\ (1:x8=3 \/ 1:x8=1) \/ 1:x6=1 /\ 1:x8=1) \/ 1:x9=1 /\ (1:x6=0 /\ (1:x8=0 \/ 1:x8=1 \/ 1:x8=2 \/ 1:x8=3) \/ 1:x6=2 /\ (1:x8=3 \/ 1:x8=2 \/ 1:x8=1) \/ 1:x6=3 /\ (1:x8=1 \/ 1:x8=3) \/ 1:x6=1 /\ 1:x8=1)) \/ 1:x7=1 /\ (1:x9=0 /\ (1:x6=0 /\ (1:x8=0 \/ 1:x8=1 \/ 1:x8=2 \/ 1:x8=3) \/ 1:x6=2 /\ (1:x8=3 \/ 1:x8=2 \/ 1:x8=1) \/ 1:x6=3 /\ (1:x8=1 \/ 1:x8=3) \/ 1:x6=1 /\ 1:x8=1) \/ 1:x9=1 /\ (1:x6=0 /\ (1:x8=3 \/ 1:x8=2 \/ 1:x8=1 \/ 1:x8=0) \/ 1:x6=2 /\ (1:x8=1 \/ 1:x8=2 \/ 1:x8=3) \/ 1:x6=3 /\ (1:x8=3 \/ 1:x8=1) \/ 1:x6=1 /\ 1:x8=1)))))
+exists (x=0 /\ 1:x9=0 /\ 1:x7=0 /\ 1:x6=0 /\ 1:x8=0)

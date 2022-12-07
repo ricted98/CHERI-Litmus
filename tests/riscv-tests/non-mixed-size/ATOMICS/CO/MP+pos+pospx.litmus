@@ -3,8 +3,7 @@ RISCV MP+pos+pospx
 Cycle=Rfe PosRRPX FreXP PosWW
 Relax=PosRRPX
 Safe=Rfe Fre PosWW
-Generator=diy7 (version 7.51+4(dev))
-Prefetch=
+Generator=diy7 (version 7.56.2)
 Com=Rf Fr
 Orig=PosWW Rfe PosRRPX FreXP
 {
@@ -15,4 +14,4 @@ Orig=PosWW Rfe PosRRPX FreXP
  sw x5,0(x6) | lw x5,0(x6)      ;
  sw x7,0(x6) | lr.w x7,0(x6)    ;
              | sc.w x8,x7,0(x6) ;
-exists (not (x=2 /\ (1:x5=0 /\ (1:x8=0 /\ (1:x7=2 \/ 1:x7=1 \/ 1:x7=0) \/ 1:x8=1 /\ (1:x7=0 \/ 1:x7=1 \/ 1:x7=2)) \/ 1:x5=1 /\ (1:x7=1 /\ (1:x8=0 \/ 1:x8=1) \/ 1:x7=2 /\ (1:x8=1 \/ 1:x8=0)) \/ 1:x5=2 /\ 1:x7=2 /\ (1:x8=1 \/ 1:x8=0))))
+exists (x=0 /\ 1:x8=0 /\ 1:x5=0 /\ 1:x7=0)

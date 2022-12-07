@@ -1,5 +1,5 @@
 RISCV Luc01+Rlx
-(* Relaxed version of Luc01 *)
+""
 {
 0:x6=x;
 1:x6=x; 1:x8=y;

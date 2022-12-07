@@ -3,8 +3,7 @@ RISCV CoRW1
 Cycle=Rfe PosRW
 Relax=
 Safe=Rfe PosRW
-Generator=diy7 (version 7.51+4(dev))
-Prefetch=
+Generator=diy7 (version 7.56.2)
 Com=Rf
 Orig=PosRW Rfe
 {
@@ -13,4 +12,4 @@ Orig=PosRW Rfe
  P0          ;
  lw x5,0(x6) ;
  sw x7,0(x6) ;
-exists (not (0:x5=0 /\ x=1))
+exists (x=0 /\ 0:x5=0)

@@ -3,8 +3,7 @@ RISCV CoWR0+posxx
 Cycle=FreXX PosWRXX
 Relax=FreXX
 Safe=PosWR
-Generator=diy7 (version 7.51+4(dev))
-Prefetch=
+Generator=diy7 (version 7.56.2)
 Com=Fr
 Orig=PosWRXX FreXX
 {
@@ -15,4 +14,4 @@ Orig=PosWRXX FreXX
  sc.w x8,x6,0(x5)  ;
  lr.w x9,0(x5)     ;
  sc.w x10,x9,0(x5) ;
-exists (not (0:x7=0 /\ (0:x10=0 /\ (0:x8=0 /\ 0:x9=1 /\ x=1 \/ 0:x8=1 /\ 0:x9=0 /\ x=0) \/ 0:x10=1 /\ (0:x8=0 /\ 0:x9=1 /\ x=1 \/ 0:x8=1 /\ 0:x9=0 /\ x=0))))
+exists (x=0 /\ 0:x10=0 /\ 0:x8=0 /\ 0:x7=0 /\ 0:x9=0)

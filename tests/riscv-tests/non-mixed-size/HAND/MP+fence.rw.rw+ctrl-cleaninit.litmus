@@ -1,6 +1,5 @@
 RISCV MP+fence.rw.rw+ctrl-cleaninit
-(* hand-edited version of BASIC_2_THREAD/MP+fence.rw.rw+ctrl.litmus
-with clean initialisation of register values to reduce instruction count *)
+""
 {
 0:x6=x; 0:x8=y;
 0:x5=1;

@@ -3,8 +3,7 @@ RISCV CoRW1+posxx
 Cycle=RfeXX PosRWXX
 Relax=RfeXX
 Safe=PosRW
-Generator=diy7 (version 7.51+4(dev))
-Prefetch=
+Generator=diy7 (version 7.56.2)
 Com=Rf
 Orig=PosRWXX RfeXX
 {
@@ -15,4 +14,4 @@ Orig=PosRWXX RfeXX
  sc.w x7,x6,0(x5)  ;
  lr.w x9,0(x5)     ;
  sc.w x10,x8,0(x5) ;
-exists (not (0:x6=0 /\ 0:x9=0 /\ (0:x10=0 /\ x=1 /\ (0:x7=0 \/ 0:x7=1) \/ 0:x10=1 /\ x=0 /\ (0:x7=1 \/ 0:x7=0))))
+exists (x=0 /\ 0:x10=0 /\ 0:x7=0 /\ 0:x6=0 /\ 0:x9=0)

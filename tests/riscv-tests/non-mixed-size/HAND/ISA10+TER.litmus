@@ -1,6 +1,6 @@
 RISCV ISA10+TER
 
-(* Variation on ISA V2.3 fig. 1.10, RDW, internal *)
+""
 {
 0:x6=x; 0:x8=y;
 1:x6=y; 1:x9=z; 1:x15=x;

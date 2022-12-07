@@ -1,5 +1,5 @@
 RISCV Luc01+BIS
-(* Luc01 with actual amo instructions  *)
+""
 {
 1:x1=0;
 0:x6=x;

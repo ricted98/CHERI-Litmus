@@ -1,6 +1,6 @@
 RISCV Luc03+BIS
 Orig=PodWWARP WsePAR PodWWARP WsePAR
-(* Luc03 with real swaps *)
+""
 {
 0:x6=x; 0:x8=y;
 1:x6=y; 1:x8=x;

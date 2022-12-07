@@ -13,8 +13,8 @@ Orig=Fence.tsodWW WsePX Fence.tsodWWXP Wse
 }
  P0          | P1               ;
  sw x5,0(x6) | lr.w x7,0(x5)    ;
- fence       | sc.w x8,x6,0(x5) ;
- sw x7,0(x8) | fence            ;
+ fence.tso   | sc.w x8,x6,0(x5) ;
+ sw x7,0(x8) | fence.tso        ;
              | sw x9,0(x10)     ;
 exists
 (x=1 /\ y=2 /\ 1:x8=0 /\ 1:x7=0)

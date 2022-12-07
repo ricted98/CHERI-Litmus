@@ -3,8 +3,7 @@ RISCV MP+pos+fence.rw.rwsxp
 Cycle=Fre PosWW RfePX Fence.rw.rwsRRXP
 Relax=RfePX
 Safe=Fre PosWW Fence.rw.rwsRR
-Generator=diy7 (version 7.51+4(dev))
-Prefetch=
+Generator=diy7 (version 7.56.2)
 Com=Rf Fr
 Orig=PosWW RfePX Fence.rw.rwsRRXP Fre
 {
@@ -16,4 +15,4 @@ Orig=PosWW RfePX Fence.rw.rwsRRXP Fre
  sw x7,0(x6) | sc.w x7,x6,0(x5) ;
              | fence rw,rw      ;
              | lw x8,0(x5)      ;
-exists (not (x=2 /\ (1:x6=0 /\ (1:x7=0 /\ (1:x8=2 \/ 1:x8=1 \/ 1:x8=0) \/ 1:x7=1 /\ (1:x8=0 \/ 1:x8=1 \/ 1:x8=2)) \/ 1:x6=1 /\ (1:x7=0 /\ (1:x8=1 \/ 1:x8=2) \/ 1:x7=1 /\ (1:x8=2 \/ 1:x8=1)) \/ 1:x6=2 /\ 1:x8=2 /\ (1:x7=1 \/ 1:x7=0))))
+exists (x=0 /\ 1:x7=0 /\ 1:x6=0 /\ 1:x8=0)

@@ -1,10 +1,5 @@
 RISCV MP+Data-XX-Addr
-(*
-Attempt to detect wether LR and SC are systematically in ppo or not.
-This may reveal an unique reserved address register.
-At the moment, none, thus in LR x;SC x; LR y; SC y; There is no ppo
-in teh middle. Allow
-*)
+""
 
 {
 0:x6=x; 0:x8=y;

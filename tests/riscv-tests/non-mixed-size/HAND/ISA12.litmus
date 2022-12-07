@@ -1,7 +1,6 @@
 RISCV ISA12
-
+""
 {
-uint64_t x;
 0:a0=x;
 }
 
@@ -11,6 +10,4 @@ uint64_t x;
  lr.d t0,0(a0)    ;
  sd t1,0(a0)      ;
  sc.d t3,t2,0(a0) ;
-
-locations [0:t3;]
 exists x=2
