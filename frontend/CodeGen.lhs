@@ -115,12 +115,8 @@ Return a chunk of inline assembley for a given process in a test.
 >   indent 2
 >     [ if null outVars then "" else "var_t " ++ consperse "," outVars ++ ";"
 >     , "arch_barrier_up();"
->     , if   testArch test == "RISCV"
->       then "delay(test.delays[" ++ show pid ++ "]*12);"
->       else "delay(test.delays[" ++ show pid ++ "]);"
->     , if   testArch test == "RISCV"
->       then ""
->       else "test.start_times[" ++ show pid ++ "] = arch_get_counter();"
+>     , "test.start_times[" ++ show pid ++ "] = arch_get_counter();"
+>     , "delay(test.delays[" ++ show pid ++ "]);"
 >     , "asm volatile ("
 >     ] ++
 >

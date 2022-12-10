@@ -152,7 +152,7 @@ void log_display_headstart()
   for (int i = 0; i < NUM_HEADSTARTS; i++) {
     put_int64(i-mid);
     put_string(": ");
-    put_uint64(global_log.headstarts[i]);
+    put_int64(global_log.headstarts[i]);
     put_string("\n");
   }
 }

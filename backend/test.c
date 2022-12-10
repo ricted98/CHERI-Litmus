@@ -35,8 +35,11 @@ void test_init(uint32_t* seed)
   uint32_t max = 0;
   for (int i = 0; i < NUM_PROCESSES; i++)
     if (test.start_times[i] > max) max = test.start_times[i];
-  for (int i = 0; i < NUM_PROCESSES; i++)
-    test.delays[i] = rand_k(seed, test.start_times[i] < max ? 6 : 2);
+  for (int i = 0; i < NUM_PROCESSES; i++){
+    test.delays[i] = (max-test.start_times[i])/3; 
+    test.delays[i] += rand_k(seed, 50);  
+  }
+
 }
 
 inline void delay(int n)
@@ -45,5 +48,5 @@ inline void delay(int n)
     asm volatile ("nop\n");
 }
 
-// Inlclude the automatically-generated litmus test
+// Include the automatically-generated litmus test
 #include "testcase.c"

@@ -6,7 +6,7 @@ TO_HOST=0x7c0
 
   # Set stack pointer to DRAM_TOP - (id * 2K)
   la sp, DRAM_TOP
-  sll a0, a0, 11
+  sll a0, a0, 13
   sub sp, sp, a0
 
   # Allocate 32 bytes of stack space
