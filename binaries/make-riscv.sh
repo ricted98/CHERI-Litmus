@@ -19,7 +19,7 @@ for FILE in $(find $1 -name "*.litmus") #| grep -v "BASIC_2_THREAD\|AMO_X0_2_THR
  do
   # if [ $i -lt 1 ]
   # then
-  # FILE="/scratch/msc22h2/cva6-litmus/tests/riscv-tests/non-mixed-size/FENCE.TSO/2/2+2W+fence.tso+fence.tsoxp.litmus"
+  #FILE="/scratch/msc22h2/cva6-litmus/tests/riscv-tests/non-mixed-size/RELAX/Rfi/2+2W+fence.rw.rw+rfi-ctrlfencei.litmus"
   echo "Processing file $FILE"
   if ! grep -q sw.rl $FILE && ! grep -q lw.aq $FILE;then
     cp -r ../backend/ backend-tmp
@@ -48,7 +48,7 @@ for FILE in $(find $1 -name "*.litmus") #| grep -v "BASIC_2_THREAD\|AMO_X0_2_THR
   rm -rf backend-tmp
   n_tests=$((n_tests+1))
   # fi 
-  # i=$((i+1))
+  i=$((i+1))
  done 
  echo "#tests               = $n_tests"
  echo "#tests well compiled = $n_compiled_tests"
