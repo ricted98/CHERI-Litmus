@@ -17,7 +17,7 @@ Orig=DpDatadW Rfi DpAddrdW Rfe DpDatadW Rfi DpCtrldW Rfe
  ori x7,x7,1     | ori x7,x7,1    ;
  sw x7,0(x8)     | sw x7,0(x8)    ;
  lw x9,0(x8)     | lw x9,0(x8)    ;
- xor x10,x9,x9   | bne x9,x0,LC00 ;
+ xor x10,x9,x9   | bne x9,zero,LC00 ;
  add x13,x12,x10 | LC00:          ;
  sw x11,0(x13)   | sw x10,0(x11)  ;
 exists

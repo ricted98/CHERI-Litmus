@@ -17,7 +17,7 @@ Orig=PodWWPRl RfiRlP DpDatadW Rfe DpAddrdW Rfi DpCtrldW Wse
  lw x9,0(x8)    | add x10,x9,x7   ;
  xor x10,x9,x9  | sw x8,0(x10)    ;
  ori x10,x10,1  | lw x11,0(x9)    ;
- sw x10,0(x11)  | bne x11,x0,LC00 ;
+ sw x10,0(x11)  | bne x11,zero,LC00 ;
                 | LC00:           ;
                 | sw x8,0(x12)    ;
 exists

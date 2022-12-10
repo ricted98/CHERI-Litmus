@@ -13,12 +13,12 @@ Orig=DpAddrdW Rfi DpCtrlFenceIdW Rfe DpCtrlFenceIdW Rfi DpCtrldW Rfe
 }
  P0              | P1             ;
  lw x5,0(x6)     | lw x5,0(x6)    ;
- xor x7,x5,x5    | bne x5,x0,LC01 ;
+ xor x7,x5,x5    | bne x5,zero,LC01 ;
  add x10,x9,x7   | LC01:          ;
  sw x8,0(x10)    | fence.i        ;
  lw x11,0(x9)    | sw x7,0(x8)    ;
- bne x11,x0,LC00 | lw x9,0(x8)    ;
- LC00:           | bne x9,x0,LC02 ;
+ bne x11,zero,LC00 | lw x9,0(x8)    ;
+ LC00:           | bne x9,zero,LC02 ;
  fence.i         | LC02:          ;
  sw x8,0(x12)    | sw x7,0(x10)   ;
 exists

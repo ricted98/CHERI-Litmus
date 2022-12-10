@@ -17,7 +17,7 @@ Orig=Fence.rw.rwdWW Rfe DpAddrdW Rfi DpCtrlFenceIsR Fre
  sw x7,0(x8) | add x10,x9,x7   ;
              | sw x8,0(x10)    ;
              | lw x11,0(x9)    ;
-             | bne x11,x0,LC00 ;
+             | bne x11,zero,LC00 ;
              | LC00:           ;
              | fence.i         ;
              | lw x12,0(x9)    ;

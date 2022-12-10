@@ -14,7 +14,7 @@ Orig=Rfi DpDatadW Wse Rfi DpCtrldW Wse
  P0           | P1             ;
  sw x5,0(x6)  | sw x5,0(x6)    ;
  lw x7,0(x6)  | lw x7,0(x6)    ;
- xor x8,x7,x7 | bne x7,x0,LC00 ;
+ xor x8,x7,x7 | bne x7,zero,LC00 ;
  ori x8,x8,1  | LC00:          ;
  sw x8,0(x9)  | sw x8,0(x9)    ;
 exists

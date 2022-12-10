@@ -14,7 +14,7 @@ Orig=Rfi DpCtrldW Rfe DpDatadW RfiPAq PosRRAqP Fre
  P0             | P1             ;
  sw x5,0(x6)    | lw x5,0(x6)    ;
  lw x7,0(x6)    | xor x7,x5,x5   ;
- bne x7,x0,LC00 | ori x7,x7,1    ;
+ bne x7,zero,LC00 | ori x7,x7,1    ;
  LC00:          | sw x7,0(x8)    ;
  sw x8,0(x9)    | lw.aq x9,0(x8) ;
                 | lw x10,0(x8)   ;

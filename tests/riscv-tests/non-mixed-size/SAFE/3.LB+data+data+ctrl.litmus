@@ -14,7 +14,7 @@ Orig=DpDatadW Rfe DpDatadW Rfe DpCtrldW Rfe
 }
  P0           | P1           | P2             ;
  lw x5,0(x6)  | lw x5,0(x6)  | lw x5,0(x6)    ;
- xor x7,x5,x5 | xor x7,x5,x5 | bne x5,x0,LC00 ;
+ xor x7,x5,x5 | xor x7,x5,x5 | bne x5,zero,LC00 ;
  ori x7,x7,1  | ori x7,x7,1  | LC00:          ;
  sw x7,0(x8)  | sw x7,0(x8)  | sw x7,0(x8)    ;
 exists

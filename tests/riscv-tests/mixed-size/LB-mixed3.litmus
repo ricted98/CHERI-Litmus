@@ -7,7 +7,7 @@ RISCV LB+mixed3
  P0                         | P1                                    ;
  lw x5,0(x6)            | lw x8,0(x6)               ;
  fence rw,rw                | lh x9,2(x6)               ;
- ori x7,x0,1                | xor x10,x9,x9                         ;
+ ori x7,zero,1                | xor x10,x9,x9                         ;
  sh x7,0(x8)            | ori x10,x10,1                         ;
                             | sw x10,0(x12)             ;
 exists

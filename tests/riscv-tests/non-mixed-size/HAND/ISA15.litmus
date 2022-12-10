@@ -9,10 +9,10 @@ Orig=Fence.w.wdWW Rfe DpDatadW Wsi Rfi Fre
 1:x6=y; 1:x20=x; 1:x8=z;
 }
  P0          | P1             ;
- ori x5,x0,3 | lw x5,0(x6)    ;
+ ori x5,zero,3 | lw x5,0(x6)    ;
  sw x5,0(x6) | sw x5,0(x8)    ;
- fence w,w   | ori x9,x0,2    ;
- ori x7,x0,1 | sw x9,0(x8)    ;
+ fence w,w   | ori x9,zero,2    ;
+ ori x7,zero,1 | sw x9,0(x8)    ;
  sw x7,0(x8) | lw x10,0(x8)   ;
              | andi x11,x10,4 ;
              | add x11,x11,x20;

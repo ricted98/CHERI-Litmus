@@ -14,7 +14,7 @@ Orig=RfLeave DpCtrldW WsBack Rfe Fence.rw.rwdRW Wse
 }
  P0          | P1             | P2          ;
  sw x5,0(x6) | lw x5,0(x6)    | lw x5,0(x6) ;
- sw x5,0(x7) | bne x5,x0,LC00 | fence rw,rw ;
+ sw x5,0(x7) | bne x5,zero,LC00 | fence rw,rw ;
              | LC00:          | sw x7,0(x8) ;
              | sw x7,0(x8)    |             ;
 exists

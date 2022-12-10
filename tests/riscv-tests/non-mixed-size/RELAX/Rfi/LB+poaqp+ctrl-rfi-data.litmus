@@ -13,7 +13,7 @@ Orig=PodRWAqP Rfe DpCtrldW Rfi DpDatadW RfePAq
 }
  P0             | P1             ;
  lw.aq x5,0(x6) | lw x5,0(x6)    ;
- sw x7,0(x8)    | bne x5,x0,LC00 ;
+ sw x7,0(x8)    | bne x5,zero,LC00 ;
                 | LC00:          ;
                 | sw x7,0(x8)    ;
                 | lw x9,0(x8)    ;

@@ -12,5 +12,5 @@ RISCV ISA03+SIMPLE+BIS
  lw t1,0(a5)             | lw t1,0(a5)             ;
  addi t1,t1,1            | addi t1,t1,1            ;
  sw t1,0(a5)             | sw t1,0(a5)             ;
- amoswap.w    x0,x0,(a0) | amoswap.w    x0,x0,(a0) ;
+ amoswap.w    zero,zero,(a0) | amoswap.w    zero,zero,(a0) ;
 exists ~(a = 2)

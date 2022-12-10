@@ -13,6 +13,6 @@ Orig=PodWRPAR FreARP PodWRPAR FreARP
 }
  P0                       | P1                       ;
  sw x5,0(x6)              | sw x5,0(x6)              ;
- amoor.w.aqrl x7,x0,(x8) | amoor.w.aqrl x7,x0,(x8) ;
+ amoor.w.aqrl x7,zero,(x8) | amoor.w.aqrl x7,zero,(x8) ;
 exists
 (0:x7=0 /\ 1:x7=0)

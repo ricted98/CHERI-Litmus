@@ -6,7 +6,7 @@ RISCV LR-SC-mixed2
 }
  P0                                       | P1                                       ;
  lr.d x5,0(x6)                            | lr.d x5,0(x6)                            ;
- ori x7,x0,1                              | ori x7,x0,1                              ;
+ ori x7,zero,1                              | ori x7,zero,1                              ;
  sw x7,0(x6)                              | sw x7,4(x6)                              ;
  sc.w.rl x8,x7,0(x9)                      | sc.w.rl x8,x7,0(x9)                      ;
 exists

@@ -3,3 +3,4 @@ binaries/*.dump
 binaries/*.elf
 binaries-prova/
 tests/next-tests
+single-core-elf/

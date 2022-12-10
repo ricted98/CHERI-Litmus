@@ -13,12 +13,12 @@ Orig=Fence.rw.rwdRW Rfe DpCtrldW Wsi Rfi DpCtrldW Rfe
 }
  P0          | P1              ;
  lw x5,0(x6) | lw x5,0(x6)     ;
- fence rw,rw | bne x5,x0,LC00  ;
+ fence rw,rw | bne x5,zero,LC00  ;
  sw x7,0(x8) | LC00:           ;
              | sw x7,0(x8)     ;
              | sw x9,0(x8)     ;
              | lw x10,0(x8)    ;
-             | bne x10,x0,LC01 ;
+             | bne x10,zero,LC01 ;
              | LC01:           ;
              | sw x7,0(x11)    ;
 exists

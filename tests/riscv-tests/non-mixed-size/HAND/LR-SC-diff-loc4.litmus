@@ -6,10 +6,10 @@ RISCV LR-SC-diff-loc4
 }
  P0          | P1                      ;
  lw x5,0(x6) | lw x5,0(x6)             ;
- fence rw,rw | ori x7,x0,1             ;
- ori x7,x0,1 | sw.rl x7,0(x8)          ;
+ fence rw,rw | ori x7,zero,1             ;
+ ori x7,zero,1 | sw.rl x7,0(x8)          ;
  sw x7,0(x8) | lr.w x9,0(x8)           ;
-             | ori x1,x0,1             ;
+             | ori x1,zero,1             ;
              | sc.w x2,x1,0(x3)        ;
 exists
 (x=1 /\ 0:x5=1 /\ 1:x5=1 /\ 1:x9=1 /\ 1:x2=0)

@@ -7,10 +7,10 @@ RISCV ForwardSc
  P0          | P1            ;
  lw x5,0(x6) | lw x5,0(x6)   ;
  fence rw,rw | lr.w x1,0(x9) ;
- ori x7,x0,1 | ori x3,x0,1   ;
+ ori x7,zero,1 | ori x3,zero,1   ;
  sw x7,0(x8) | sc.w.rl x2,x3,0(x9) ;
              | lw x4,0(x9)   ;
-             | beq x4,x0,LOUT;
+             | beq x4,zero,LOUT;
              | sw x3,0(x7)   ;
              | LOUT:         ;
 exists

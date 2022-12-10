@@ -6,7 +6,7 @@ RISCV LR-SC-diff-loc3
 }
  P0                           | P1                           ;
  lr.w x5,0(x6)                |  lr.w x5,0(x6)                 ;
- ori x7,x0,1                  | ori x7,x0,1                  ;
+ ori x7,zero,1                  | ori x7,zero,1                  ;
  sc.w x8,x7,0(x9)             |  sc.w x8,x7,0(x9)              ;
 exists
 (x=1 /\ y=1 /\ 0:x5=0 /\ 0:x8=0 /\ 1:x5=0 /\ 1:x8=0)

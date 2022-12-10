@@ -14,7 +14,7 @@ Orig=Rfi DpAddrdW Wse Rfi DpCtrlFenceIdW Wse
  P0             | P1             ;
  sw x5,0(x6)    | sw x5,0(x6)    ;
  lw x7,0(x6)    | lw x7,0(x6)    ;
- xor x8,x7,x7   | bne x7,x0,LC00 ;
+ xor x8,x7,x7   | bne x7,zero,LC00 ;
  add x11,x10,x8 | LC00:          ;
  sw x9,0(x11)   | fence.i        ;
                 | sw x8,0(x9)    ;

@@ -5,9 +5,9 @@ RISCV LB+amoadds
 1:x5=y; 1:x9=x;
 }
  P0                    | P1                    ;
- ori x6,x0,1           | ori x6,x0,1           ;
+ ori x6,zero,1           | ori x6,zero,1           ;
  amoadd.w x7,x6,(x5)   | amoadd.w x7,x6,(x5)   ;
- ori x10,x0,1          | ori x10,x0,1          ;
+ ori x10,zero,1          | ori x10,zero,1          ;
  amoadd.w x11,x10,(x9) | amoadd.w x11,x10,(x9) ;
 exists
 (x=2 /\ y=2)

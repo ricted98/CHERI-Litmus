@@ -6,8 +6,8 @@ RISCV LB+mixed1
 }
  P0                      | P1                                          ;
  lw x5,0(x6)             | lw x5,0(x6)                                 ;
- fence rw,rw             | ori x7,x0,1                                 ;
- ori x7,x0,1             | amoadd.w.rl x1,x7,(x8)                      ;
+ fence rw,rw             | ori x7,zero,1                                 ;
+ ori x7,zero,1             | amoadd.w.rl x1,x7,(x8)                      ;
  sw x7,0(x8)             | ld x9,0(x8)                                 ;
                          | lw x10,4(x8)                                ;
                          | xor x11,x10,x10                             ;

@@ -17,7 +17,7 @@ Orig=DpAddrdW Rfe DpAddrdW Rfi DpCtrldW Rfe
  add x10,x9,x7 | add x10,x9,x7   ;
  sw x8,0(x10)  | sw x8,0(x10)    ;
                | lw x11,0(x9)    ;
-               | bne x11,x0,LC00 ;
+               | bne x11,zero,LC00 ;
                | LC00:           ;
                | sw x8,0(x12)    ;
 exists

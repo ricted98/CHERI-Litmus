@@ -5,9 +5,9 @@ RISCV LB+mixed2
 1:x6=y; 1:x12=x;
 }
  P0                         | P1               ;
- lw x5,0(x6)                | ori x5,x0,17     ;
+ lw x5,0(x6)                | ori x5,zero,17     ;
  fence rw,rw                | sh x5,2(x6)      ;
- ori x7,x0,1                | lw x7,0(x6)      ;
+ ori x7,zero,1                | lw x7,0(x6)      ;
  sh x7,0(x8)                | lw x8,0(x6)      ;
                             | lh x9,2(x6)      ;
                             | xor x10,x9,x9    ;

@@ -7,7 +7,7 @@ Hash=a05b05209e12b622034855bb94db48cd
 }
 
  P0                     | P1                     ;
- li t0,1                | amoor.d.aq a1,x0,0(s1) ;
+ li t0,1                | amoor.d.aq a1,zero,0(s1) ;
  amoor.d.aq a0,t0,0(s0) | ld a2,0(s0)            ;
  sd t0,0(s1)            |                        ;
 exists (1:a1=1 /\ 1:a2=0)

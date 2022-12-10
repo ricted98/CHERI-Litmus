@@ -14,7 +14,7 @@ Orig=DpAddrdW Rfe DpCtrldW RfLeave FrBack Rfe
 }
  P0            | P1             | P2          ;
  lw x5,0(x6)   | lw x5,0(x6)    | lw x5,0(x6) ;
- xor x7,x5,x5  | bne x5,x0,LC00 |             ;
+ xor x7,x5,x5  | bne x5,zero,LC00 |             ;
  add x10,x9,x7 | LC00:          |             ;
  sw x8,0(x10)  | sw x7,0(x8)    |             ;
                | sw x9,0(x8)    |             ;

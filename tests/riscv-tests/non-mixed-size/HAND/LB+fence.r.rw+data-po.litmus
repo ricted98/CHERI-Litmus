@@ -11,9 +11,9 @@ Orig=Fence.r.rwdRW Rfe DpDatadW PodWW Rfe
  P0          | P1           ;
  lw x5,0(x6) | lw x5,0(x6)  ;
  fence r,rw  | xor x7,x5,x5 ;
- ori x7,x0,1 | ori x7,x7,1  ;
+ ori x7,zero,1 | ori x7,x7,1  ;
  sw x7,0(x8) | sw x7,0(x8)  ;
-             | ori x9,x0,1  ;
+             | ori x9,zero,1  ;
              | sw x9,0(x10) ;
 exists
 (0:x5=1 /\ 1:x5=1)

@@ -9,10 +9,10 @@ Orig=Fence.r.wdWWRlP WsePRl Fence.r.wdWWRlP WsePRl
 1:x6=y; 1:x8=x;
 }
  P0                   | P1                   ;
- ori x5,x0,2          | ori x5,x0,2          ;
- amoswap.w x0,x5,(x6) | amoswap.w x0,x5,(x6) ;
+ ori x5,zero,2          | ori x5,zero,2          ;
+ amoswap.w zero,x5,(x6) | amoswap.w zero,x5,(x6) ;
  fence r,w            | fence r,w            ;
- ori x7,x0,1          | ori x7,x0,1          ;
+ ori x7,zero,1          | ori x7,zero,1          ;
  sw x7,0(x8)          | sw x7,0(x8)          ;
  lw x1,0(x8)          | lw x1,0(x8)          ;
 exists (0:x1=2 /\ 1:x1=2)

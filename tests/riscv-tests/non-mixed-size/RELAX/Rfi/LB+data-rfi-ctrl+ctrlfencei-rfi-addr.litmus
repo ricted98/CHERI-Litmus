@@ -13,11 +13,11 @@ Orig=DpDatadW Rfi DpCtrldW Rfe DpCtrlFenceIdW Rfi DpAddrdW Rfe
 }
  P0             | P1              ;
  lw x5,0(x6)    | lw x5,0(x6)     ;
- xor x7,x5,x5   | bne x5,x0,LC01  ;
+ xor x7,x5,x5   | bne x5,zero,LC01  ;
  ori x7,x7,1    | LC01:           ;
  sw x7,0(x8)    | fence.i         ;
  lw x9,0(x8)    | sw x7,0(x8)     ;
- bne x9,x0,LC00 | lw x9,0(x8)     ;
+ bne x9,zero,LC00 | lw x9,0(x8)     ;
  LC00:          | xor x10,x9,x9   ;
  sw x10,0(x11)  | add x12,x11,x10 ;
                 | sw x7,0(x12)    ;

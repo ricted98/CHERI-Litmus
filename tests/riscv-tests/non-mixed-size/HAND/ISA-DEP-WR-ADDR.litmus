@@ -5,7 +5,7 @@ RISCV ISA-DEP-WR-ADDR
 1:x6=y; 1:x9=x;
 }
  P0               | P1            ;
- ori x6,x0,1      | ori x5,x0,1   ;
+ ori x6,zero,1      | ori x5,zero,1   ;
  lr.w x7,0(x5)    | sw x5,0(x6)   ;
  sc.w x8,x6,0(x5) | fence rw,rw   ;
  xor x9,x8,x8     | lw x8,0(x9)  ;

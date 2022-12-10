@@ -12,5 +12,5 @@ RISCV ISA03+SB02
  li t1,1                 | li t1,1                 ;
  sw t1,0(a1)             | sw t1,0(a2)             ;
  lw t2,0(a2)             | lw t2,0(a1)             ;
- amoswap.w    x0,x0,(a0) | amoswap.w    x0,x0,(a0) ;
+ amoswap.w    zero,zero,(a0) | amoswap.w    zero,zero,(a0) ;
 exists (0:t2=0 /\ 1:t2=0)

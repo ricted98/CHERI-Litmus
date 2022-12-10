@@ -13,7 +13,7 @@ Orig=Rfi DpAddrdW Rfe DpCtrlFenceIdW RfiPAq PodRRAqP Fre
 }
  P0            | P1             ;
  sw x5,0(x6)   | lw x5,0(x6)    ;
- lw x7,0(x6)   | bne x5,x0,LC00 ;
+ lw x7,0(x6)   | bne x5,zero,LC00 ;
  xor x8,x7,x7  | LC00:          ;
  add x10,x9,x8 | fence.i        ;
  sw x5,0(x10)  | sw x7,0(x8)    ;

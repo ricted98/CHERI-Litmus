@@ -15,7 +15,7 @@ Orig=PodWWPRl RfiRlP DpCtrldW RfePAq PodRRAqP Fre
  sw x5,0(x6)    | lw.aq x5,0(x6) ;
  sw.rl x5,0(x7) | lw x7,0(x8)    ;
  lw x8,0(x7)    |                ;
- bne x8,x0,LC00 |                ;
+ bne x8,zero,LC00 |                ;
  LC00:          |                ;
  sw x5,0(x9)    |                ;
 exists

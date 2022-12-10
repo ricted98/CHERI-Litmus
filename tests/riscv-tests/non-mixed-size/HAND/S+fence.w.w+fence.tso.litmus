@@ -5,10 +5,10 @@ RISCV S+fence.w.w+fence.tso
 1:x6=y; 1:x8=x;
 }
  P0          | P1          ;
- ori x5,x0,2 | lw x5,0(x6) ;
+ ori x5,zero,2 | lw x5,0(x6) ;
  sw x5,0(x6) | fence.tso   ;
- fence w,w   | ori x7,x0,1 ;
- ori x7,x0,1 | sw x7,0(x8) ;
+ fence w,w   | ori x7,zero,1 ;
+ ori x7,zero,1 | sw x7,0(x8) ;
  sw x7,0(x8) |             ;
 exists
 (x=2 /\ 1:x5=1)

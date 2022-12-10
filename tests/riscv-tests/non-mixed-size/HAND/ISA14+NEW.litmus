@@ -8,10 +8,10 @@ Orig=Fence.w.wdWW Rfe DpDatadW Rfi DpAddrdR  Fre
 1:x6=y; 1:x8=z; 1:x1=x;
 }
  P0          | P1             ;
- ori x5,x0,1 | lw x5,0(x6)    ;
+ ori x5,zero,1 | lw x5,0(x6)    ;
  sw x5,0(x6) | sw x5,0(x8)    ;
  fence w,w   | lw x9,0(x8)    ; 
- ori x7,x0,1 | andi x2,x9,4   ;
+ ori x7,zero,1 | andi x2,x9,4   ;
  sw x7,0(x8) | add x1,x1,x2   ;
              | lw x3,0(x1)    ;
 exists

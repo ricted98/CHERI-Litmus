@@ -6,9 +6,9 @@ RISCV SB+fence.w.wprlxs
 }
 ""
 P0                 | P1                    ;
- ori x5,x0,1        | ori x5,x0,1           ;
+ ori x5,zero,1        | ori x5,zero,1           ;
  sw x5,0(x6)        | sw x5,0(x6)           ;
  fence w,w          | fence w,w             ;
- amoor.w x7,x0,(x8) | amoor.w x7,x0,(x8) ;
+ amoor.w x7,zero,(x8) | amoor.w x7,zero,(x8) ;
 exists
 (0:x7=0 /\ 1:x7=0)

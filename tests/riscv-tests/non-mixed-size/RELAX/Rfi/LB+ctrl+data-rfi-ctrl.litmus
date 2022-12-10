@@ -13,11 +13,11 @@ Orig=DpCtrldW Rfe DpDatadW Rfi DpCtrldW Rfe
 }
  P0             | P1             ;
  lw x5,0(x6)    | lw x5,0(x6)    ;
- bne x5,x0,LC00 | xor x7,x5,x5   ;
+ bne x5,zero,LC00 | xor x7,x5,x5   ;
  LC00:          | ori x7,x7,1    ;
  sw x7,0(x8)    | sw x7,0(x8)    ;
                 | lw x9,0(x8)    ;
-                | bne x9,x0,LC01 ;
+                | bne x9,zero,LC01 ;
                 | LC01:          ;
                 | sw x10,0(x11)  ;
 exists

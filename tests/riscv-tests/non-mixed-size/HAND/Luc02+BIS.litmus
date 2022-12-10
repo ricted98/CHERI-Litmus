@@ -6,8 +6,8 @@ RISCV Luc02+BIS
 1:x1=0;
 }
  P0                         | P1                       ;
- ori x5,x0,2                | amoor.w.aqrl x5,x1,(x6) ;
- amoswap.w.aqrl x1,x5,(x6) | ori x7,x0,1              ;
- ori x7,x0,1                | sw x7,0(x8)              ;
+ ori x5,zero,2                | amoor.w.aqrl x5,x1,(x6) ;
+ amoswap.w.aqrl x1,x5,(x6) | ori x7,zero,1              ;
+ ori x7,zero,1                | sw x7,0(x8)              ;
  amoswap.w.aqrl x2,x7,(x8) | amoor.w.aqrl x9,x1,(x8) ;
 exists (1:x5=0 /\ 1:x9=2 /\ x=2)

@@ -16,7 +16,7 @@ Orig=Rfe DpDatadW WsePX PosWRXAq DpCtrlFenceIdRAqP Fre
  sw x5,0(x6) | lw x5,0(x6)  | lr.w x7,0(x5)    ;
              | xor x7,x5,x5 | sc.w x8,x6,0(x5) ;
              | ori x7,x7,1  | lw.aq x9,0(x5)   ;
-             | sw x7,0(x8)  | bne x9,x0,LC00   ;
+             | sw x7,0(x8)  | bne x9,zero,LC00   ;
              |              | LC00:            ;
              |              | fence.i          ;
              |              | lw x10,0(x11)    ;

@@ -9,10 +9,10 @@ Orig=Fence.w.wdWW Rfe DpAddrdW Rfi DpAddrdR Fre
 1:x6=y; 1:x9=z; 1:x14=x;
 }
  P0          | P1               ;
- ori x5,x0,1 | lw x5,0(x6)      ;
+ ori x5,zero,1 | lw x5,0(x6)      ;
  sw x5,0(x6) | andi x7,x5,128   ;
- fence w,w   | ori x8,x0,1      ;
- ori x7,x0,1 | add x10,x9,x7    ;
+ fence w,w   | ori x8,zero,1      ;
+ ori x7,zero,1 | add x10,x9,x7    ;
  sw x7,0(x8) | sw x8,0(x10)     ;
              | lw x11,0(x9)     ;
              | andi x12,x11,128 ;

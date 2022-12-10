@@ -8,7 +8,7 @@ RISCV ISA-Rel-Acq
 }
 
  P0          | P1                    ;
- ori x6,x0,1 | ori x6,x0,1           ;
+ ori x6,zero,1 | ori x6,zero,1           ;
  sd x6,0(s0) | amoswap.d a0,x6,0(s1) ;
  fence w,w   | ld.aq a1,0(s1)        ;
  sd x6,0(s1) | ld a2,0(s0)           ;

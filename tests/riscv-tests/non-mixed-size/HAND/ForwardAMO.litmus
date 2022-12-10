@@ -6,10 +6,10 @@ RISCV ForwardAMO
 }
  P0          | P1            ;
  lw x5,0(x6) | lw x5,0(x6)   ;
- fence rw,rw | ori x3,x0,1   ;
- ori x7,x0,1 | amoswap.w.rl x1,x3,0(x9) ;
+ fence rw,rw | ori x3,zero,1   ;
+ ori x7,zero,1 | amoswap.w.rl x1,x3,0(x9) ;
  sw x7,0(x8) | lw x4,0(x9)   ;
-             | beq x4,x0,LOUT;
+             | beq x4,zero,LOUT;
              | sw x3,0(x7)   ; 
              | LOUT:         ;
 exists

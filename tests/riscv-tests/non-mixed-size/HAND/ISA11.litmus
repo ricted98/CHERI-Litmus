@@ -10,6 +10,6 @@ RISCV ISA11
  li t1,2                | li t3,2                 ;
  li t2,1                | li t4,1                 ;
  sd t1,0(s0)            | sd t3,0(s1)             ;
- amoor.d.aq a0,t2,(s0)  | amoswap.d.rl x0,t4,(s0) ;
+ amoor.d.aq a0,t2,(s0)  | amoswap.d.rl zero,t4,(s0) ;
  sd t2,0(s1)            |                         ;
 exists 0:a0=2 /\ x=3 /\ y=2

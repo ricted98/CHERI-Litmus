@@ -17,7 +17,7 @@ Orig=DpDatadW Rfe DpDatadW Rfi DpCtrlFenceIdW Rfe
  ori x7,x7,1  | ori x7,x7,1    ;
  sw x7,0(x8)  | sw x7,0(x8)    ;
               | lw x9,0(x8)    ;
-              | bne x9,x0,LC00 ;
+              | bne x9,zero,LC00 ;
               | LC00:          ;
               | fence.i        ;
               | sw x10,0(x11)  ;

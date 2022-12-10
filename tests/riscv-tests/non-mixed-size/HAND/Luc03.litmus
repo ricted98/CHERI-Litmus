@@ -9,9 +9,9 @@ Orig=PodWWARP WsePAR PodWWARP WsePAR
 1:x6=y; 1:x8=x;
 }
  P0                         | P1                         ;
- ori x5,x0,2                | ori x5,x0,2                ;
- amoswap.w.aqrl x0,x5,(x6) | amoswap.w.aqrl x0,x5,(x6) ;
- ori x7,x0,1                | ori x7,x0,1                ;
+ ori x5,zero,2                | ori x5,zero,2                ;
+ amoswap.w.aqrl zero,x5,(x6) | amoswap.w.aqrl zero,x5,(x6) ;
+ ori x7,zero,1                | ori x7,zero,1                ;
  sw x7,0(x8)                | sw x7,0(x8)                ;
 exists
 (x=2 /\ y=2)

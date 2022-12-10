@@ -5,7 +5,7 @@ RISCV SWAP-LR-SC
 1:x5=x;
 }
  P0                 | P1                 ;
- ori x6,x0,1        | ori x6,x0,2        ;
+ ori x6,zero,1        | ori x6,zero,2        ;
  lr.w x7,0(x5)      | lr.w x7,0(x5)      ;
  sc.w x8,x6,0(x5)   | sc.w x8,x6,0(x5)   ;
 exists

@@ -19,7 +19,7 @@ RISCV ISA03
  li t3,1                 | li t1,1                 ;
  sd t3,0(a3)             | sd t1,0(a2)             ;
  ld t4,0(a4)             | ld t2,0(a1)             ;
- amoswap.w.rl x0,x0,(a0) | amoswap.w.rl x0,x0,(a0) ;
+ amoswap.w.rl zero,zero,(a0) | amoswap.w.rl zero,zero,(a0) ;
                          | li t3,1                 ;
                          | sd t3,0(a4)             ;
                          | ld t4,0(a3)             ;

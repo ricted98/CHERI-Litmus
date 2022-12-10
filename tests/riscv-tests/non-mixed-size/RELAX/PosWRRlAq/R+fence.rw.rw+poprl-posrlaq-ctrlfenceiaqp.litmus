@@ -15,7 +15,7 @@ Orig=Fence.rw.rwdWW Wse PodWWPRl PosWRRlAq DpCtrlFenceIdRAqP Fre
  sw x5,0(x6) | sw x5,0(x6)    ;
  fence rw,rw | sw.rl x7,0(x8) ;
  sw x5,0(x7) | lw.aq x9,0(x8) ;
-             | bne x9,x0,LC00 ;
+             | bne x9,zero,LC00 ;
              | LC00:          ;
              | fence.i        ;
              | lw x10,0(x11)  ;

@@ -14,7 +14,7 @@ Orig=PodWRRlAq DpCtrlFenceIsRAqP FrePRl PodWRRlAq DpCtrlFenceIsRAqP FrePRl
  P0             | P1             ;
  sw.rl x5,0(x6) | sw.rl x5,0(x6) ;
  lw.aq x7,0(x8) | lw.aq x7,0(x8) ;
- bne x7,x0,LC00 | bne x7,x0,LC01 ;
+ bne x7,zero,LC00 | bne x7,zero,LC01 ;
  LC00:          | LC01:          ;
  fence.i        | fence.i        ;
  lw x9,0(x8)    | lw x9,0(x8)    ;

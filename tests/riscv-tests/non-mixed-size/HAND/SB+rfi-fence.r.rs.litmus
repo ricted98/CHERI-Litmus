@@ -9,7 +9,7 @@ Orig=Rfi Fence.r.rdRR Fre Rfi Fence.r.rdRR Fre
 1:x6=y; 1:x9=x;
 }
  P0          | P1          ;
- ori x5,x0,1 | ori x5,x0,1 ;
+ ori x5,zero,1 | ori x5,zero,1 ;
  sw x5,0(x6) | sw x5,0(x6) ;
  lw x7,0(x6) | lw x7,0(x6) ;
  fence r,r   | fence r,r   ;

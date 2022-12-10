@@ -15,7 +15,7 @@ Orig=PosWW PosWR DpCtrlFenceIdR Fre PodWWPRl PosWRRlP DpAddrdR Fre
  sw x5,0(x6)    | sw x5,0(x6)    ;
  sw x7,0(x6)    | sw.rl x5,0(x7) ;
  lw x8,0(x6)    | lw x8,0(x7)    ;
- bne x8,x0,LC00 | xor x9,x8,x8   ;
+ bne x8,zero,LC00 | xor x9,x8,x8   ;
  LC00:          | add x12,x11,x9 ;
  fence.i        | lw x10,0(x12)  ;
  lw x9,0(x10)   |                ;

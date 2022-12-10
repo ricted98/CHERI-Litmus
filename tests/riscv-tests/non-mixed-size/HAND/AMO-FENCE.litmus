@@ -8,9 +8,9 @@ RISCV AMO-FENCE
 }
 
  P0                           | P1                           ;
- ori x5,x0,1                  | ori x5,x0,1                  ;
+ ori x5,zero,1                  | ori x5,zero,1                  ;
  sw x5,0(x6)                  | sw x5,0(x6)                  ;
- amoswap.w.aqrl x0,x1,0(x10) | amoswap.w.aqrl x0,x1,0(x10) ;
+ amoswap.w.aqrl zero,x1,0(x10) | amoswap.w.aqrl zero,x1,0(x10) ;
  lw x7,0(x8)                  | lw x7,0(x8)                  ;
 exists (0:x7=0 /\ 1:x7=0)
 

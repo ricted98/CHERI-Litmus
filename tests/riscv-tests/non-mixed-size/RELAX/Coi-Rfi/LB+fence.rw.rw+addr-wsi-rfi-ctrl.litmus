@@ -18,7 +18,7 @@ Orig=Fence.rw.rwdRW Rfe DpAddrdW Wsi Rfi DpCtrldW Rfe
              | sw x8,0(x10)    ;
              | sw x11,0(x9)    ;
              | lw x12,0(x9)    ;
-             | bne x12,x0,LC00 ;
+             | bne x12,zero,LC00 ;
              | LC00:           ;
              | sw x8,0(x13)    ;
 exists

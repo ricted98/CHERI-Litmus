@@ -14,7 +14,7 @@ Orig=RfiPAq PodRRAqP Fre Rfi DpCtrlFenceIdW Rfi Fre
  P0             | P1             ;
  sw x5,0(x6)    | sw x5,0(x6)    ;
  lw.aq x7,0(x6) | lw x7,0(x6)    ;
- lw x8,0(x9)    | bne x7,x0,LC00 ;
+ lw x8,0(x9)    | bne x7,zero,LC00 ;
                 | LC00:          ;
                 | fence.i        ;
                 | sw x5,0(x8)    ;

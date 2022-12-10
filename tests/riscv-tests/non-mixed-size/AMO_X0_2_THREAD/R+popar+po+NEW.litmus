@@ -13,6 +13,6 @@ Orig=PodWWPAR WseARP PodWR Fre
 }
  P0                         | P1          ;
  sw x5,0(x6)                | sw x5,0(x6) ;
- amoswap.w.aqrl x0,x5,(x7) | lw x7,0(x8) ;
+ amoswap.w.aqrl zero,x5,(x7) | lw x7,0(x8) ;
 exists
 (y=2 /\ 1:x7=0)

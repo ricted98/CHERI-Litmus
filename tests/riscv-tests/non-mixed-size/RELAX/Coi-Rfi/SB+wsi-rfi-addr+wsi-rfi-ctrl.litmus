@@ -15,7 +15,7 @@ Orig=Wsi Rfi DpAddrdR Fre Wsi Rfi DpCtrldR Fre
  sw x5,0(x6)    | sw x5,0(x6)    ;
  sw x7,0(x6)    | sw x7,0(x6)    ;
  lw x8,0(x6)    | lw x8,0(x6)    ;
- xor x9,x8,x8   | bne x8,x0,LC00 ;
+ xor x9,x8,x8   | bne x8,zero,LC00 ;
  add x12,x11,x9 | LC00:          ;
  lw x10,0(x12)  | lw x9,0(x10)   ;
 exists

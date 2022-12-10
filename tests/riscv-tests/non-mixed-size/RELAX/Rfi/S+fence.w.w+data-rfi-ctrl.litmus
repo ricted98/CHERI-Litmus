@@ -17,7 +17,7 @@ Orig=Fence.w.wdWW Rfe DpDatadW Rfi DpCtrldW Wse
  sw x7,0(x8) | ori x7,x7,1    ;
              | sw x7,0(x8)    ;
              | lw x9,0(x8)    ;
-             | bne x9,x0,LC00 ;
+             | bne x9,zero,LC00 ;
              | LC00:          ;
              | sw x10,0(x11)  ;
 exists

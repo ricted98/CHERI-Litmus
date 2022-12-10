@@ -14,7 +14,7 @@ Orig=FrLeave RfBack PodRWPRl RfeRlP DpCtrldW Rfe
 }
  P0             | P1          | P2             ;
  lw x5,0(x6)    | sw x5,0(x6) | lw x5,0(x6)    ;
- lw x7,0(x6)    |             | bne x5,x0,LC00 ;
+ lw x7,0(x6)    |             | bne x5,zero,LC00 ;
  sw.rl x8,0(x9) |             | LC00:          ;
                 |             | sw x7,0(x8)    ;
 exists

@@ -14,7 +14,7 @@ Orig=Rfi DpCtrldW Rfi Fre Rfi DpCtrldW Rfi Fre
  P0             | P1             ;
  sw x5,0(x6)    | sw x5,0(x6)    ;
  lw x7,0(x6)    | lw x7,0(x6)    ;
- bne x7,x0,LC00 | bne x7,x0,LC01 ;
+ bne x7,zero,LC00 | bne x7,zero,LC01 ;
  LC00:          | LC01:          ;
  sw x8,0(x9)    | sw x8,0(x9)    ;
  lw x10,0(x9)   | lw x10,0(x9)   ;

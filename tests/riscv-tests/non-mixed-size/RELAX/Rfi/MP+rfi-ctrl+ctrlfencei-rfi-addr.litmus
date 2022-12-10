@@ -13,8 +13,8 @@ Orig=Rfi DpCtrldW Rfe DpCtrlFenceIdW Rfi DpAddrdR Fre
 }
  P0             | P1              ;
  sw x5,0(x6)    | lw x5,0(x6)     ;
- lw x7,0(x6)    | bne x5,x0,LC01  ;
- bne x7,x0,LC00 | LC01:           ;
+ lw x7,0(x6)    | bne x5,zero,LC01  ;
+ bne x7,zero,LC00 | LC01:           ;
  LC00:          | fence.i         ;
  sw x5,0(x8)    | sw x7,0(x8)     ;
                 | lw x9,0(x8)     ;

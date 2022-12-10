@@ -13,7 +13,7 @@ Orig=DpCtrldW RfePX PodRWXX RfeXP
 }
  P0             | P1                ;
  lw x5,0(x6)    | lr.w x6,0(x5)     ;
- bne x5,x0,LC00 | sc.w x7,x6,0(x5)  ;
+ bne x5,zero,LC00 | sc.w x7,x6,0(x5)  ;
  LC00:          | lr.w x10,0(x8)    ;
  sw x7,0(x8)    | sc.w x11,x9,0(x8) ;
 exists

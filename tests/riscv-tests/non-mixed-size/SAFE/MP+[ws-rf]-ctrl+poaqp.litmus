@@ -15,7 +15,7 @@ Orig=WsLeave RfBack DpCtrldW RfePAq PodRRAqP Fre
  P0             | P1          | P2             ;
  sw x5,0(x6)    | sw x5,0(x6) | lw.aq x5,0(x6) ;
  lw x7,0(x6)    |             | lw x7,0(x8)    ;
- bne x7,x0,LC00 |             |                ;
+ bne x7,zero,LC00 |             |                ;
  LC00:          |             |                ;
  sw x5,0(x8)    |             |                ;
 exists
