@@ -11,4 +11,4 @@ RISCV C-Will02+HEAD
  fence rw,rw              | lw x7,0(x6) ;
  amoadd.w.aq x9,x5,(x7)   |             ;
  lw x2,0(x3)              |             ;
-exists (0:x9=0 /\ 1:x7=0)
+exists (0:x2=0 /\ 0:x9=0 /\ 1:x7=0)
