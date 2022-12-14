@@ -1,0 +1,7 @@
+#tests               = 7335
+#tests well compiled = 1719
+#parsing errors      = 31
+#too much precesses  = 66
+#dual core           = 1721
+#compiling errors    = 0
+#lw.aq or sw.rl      = 3798
