@@ -22,7 +22,7 @@ int main()
   }
 
   // Random seed
-  uint32_t seed = 24205;
+  uint32_t seed = 24748;
 
   for (int i = 0; i < NUM_ITERATIONS; i++) {
     if (me == 0) test_init(&seed);
