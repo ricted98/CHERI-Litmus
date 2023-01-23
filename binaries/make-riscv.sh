@@ -15,39 +15,41 @@ n_compiling_errors=0
 n_no_opcode=0
 i=0
 
-for FILE in $(find $1 -name "*.litmus") #| grep -v "BASIC_2_THREAD\|AMO_X0_2_THREAD")
+for FILE in $(find $1 -name "*.litmus" | grep -v "ATOMICS/CO\|HAND")
  do
   # if [ $i -lt 1 ]
   # then
-  #FILE="/scratch/msc22h2/cva6-litmus/tests/riscv-tests/non-mixed-size/RELAX/Rfi/2+2W+fence.rw.rw+rfi-ctrlfencei.litmus"
+  # FILE="../tests/riscv-tests/non-mixed-size/SAFE/IRIW+addr+ctrlfencei.litmus"
   echo "Processing file $FILE"
   if ! grep -q sw.rl $FILE && ! grep -q lw.aq $FILE;then
     cp -r ../backend/ backend-tmp
-    if ../frontend/litmus $FILE backend-tmp/testcase.c backend-tmp/testcase.h $2; then
-      if ! grep -q P2 $FILE; then
-         cd backend-tmp
-         ./make-riscv.sh
-         cd ..
-         OUTFILE=`basename $FILE .litmus`.elf
-         if cp backend-tmp/main.elf $OUTFILE; then
-             OUTFILE=`basename $FILE .litmus`.dump
-             cp backend-tmp/main.dump $OUTFILE
-             n_compiled_tests=$((n_compiled_tests+1))
-         else
-            n_compiling_errors=$((n_compiled_errors+1))
-         fi
-      else 
-        n_more_process=$((n_more_process+1))
+    #if grep -q P0 $FILE; then
+      if ../frontend/litmus $FILE backend-tmp/testcase.c backend-tmp/testcase.h $2; then
+        #if grep -q P3 $FILE; then
+           cd backend-tmp
+           ./make-riscv.sh
+           cd ..
+           OUTFILE=`basename $FILE .litmus`.elf
+           if cp backend-tmp/main.elf $OUTFILE; then
+               OUTFILE=`basename $FILE .litmus`.dump
+               cp backend-tmp/main.dump $OUTFILE
+               n_compiled_tests=$((n_compiled_tests+1))
+           else
+              n_compiling_errors=$((n_compiled_errors+1))
+           fi
+        # else 
+        #   n_more_process=$((n_more_process+1))
+        # fi
+      else
+        n_parsing_errors=$((n_parsing_errors+1))
       fi
-    else
-      n_parsing_errors=$((n_parsing_errors+1))
-    fi
+    #fi
   else
     n_no_opcode=$((n_no_opcode+1))
   fi
   rm -rf backend-tmp
   n_tests=$((n_tests+1))
-  # fi 
+  #fi 
   i=$((i+1))
  done 
  echo "#tests               = $n_tests"
