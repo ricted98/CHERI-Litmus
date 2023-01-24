@@ -16,7 +16,7 @@ int main()
   if (me >= NUM_PROCESSES) while (1);
 
   if (me == 0) {
-    init_uart(50000000, 115200*4);
+    init_uart(50000000, 115200);
     //put_string("Hello World!\n");
     log_init();
   }

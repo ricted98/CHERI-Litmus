@@ -4,3 +4,14 @@ binaries/*.elf
 binaries-prova/
 tests/next-tests
 single-core-elf/
+triple-core-elf/
+tmp-elf/
+quad-core-elf/
+dual-core-elf/
+frontend/*.hi
+frontend/litmus
+frontend/litmus-translate
+main.copy
+Diary.md
+RWC+fence.rw.rwspx+posxp.dump
+RWC+fence.rw.rwspx+posxp.elf

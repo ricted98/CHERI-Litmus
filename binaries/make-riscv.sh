@@ -5,7 +5,7 @@ if [ "$1" = "" ]; then
   exit
 fi
 
-sed "25 s/  uint32_t seed = [0-9];/  uint32_t seed = $RANDOM;/" ../main.copy > ../backend/main.c
+#sed "25 s/  uint32_t seed = [0-9];/  uint32_t seed = $RANDOM;/" ../main.copy > ../backend/main.c
 rm -rf backend-tmp
 n_tests=0
 n_compiled_tests=0
@@ -15,6 +15,7 @@ n_compiling_errors=0
 n_no_opcode=0
 i=0
 
+#ATOMICS/CO and HAND litmus tests can't actually be compiled
 for FILE in $(find $1 -name "*.litmus" | grep -v "ATOMICS/CO\|HAND")
  do
   # if [ $i -lt 1 ]
