@@ -1,4 +1,4 @@
-PLATFORM="rocket"
+PLATFORM="cva6"
 
 CC="/usr/pack/riscv-1.0-kgf/riscv64-gcc-8.5.0/bin/riscv64-unknown-elf-gcc"
 AS="/usr/pack/riscv-1.0-kgf/riscv64-gcc-8.5.0/bin/riscv64-unknown-elf-as"
@@ -10,7 +10,7 @@ OPT="-O -fno-builtin"          #optimize even more and avoid to use standard c f
 CFLAGS="$OPT -I. -mcmodel=medany -g"  #include actuar directory to search directories
 LDFLAGS="-G 0 -T $PLATFORM/$PLATFORM.ld"
 
-CFILES="main io log hash rand riscv/arch rocket/platform rocket/uart test"
+CFILES="main io log hash rand riscv/arch cva6/platform cva6/uart test"
 OFILES=""
 for F in $CFILES
 do
@@ -18,7 +18,7 @@ do
   $CC $CFLAGS -std=gnu99 -Wall -c -o `basename $F.o` $F.c  #-std define the standard used
 done
 
-$AS -o entry.o rocket/entry.s
+$AS -o entry.o cva6/entry.s
 $LD $LDFLAGS -o main.elf entry.o $OFILES
 $OBJDUMP -S main.elf > main.dump
 #elf2hex 16 65536 main.elf > 
