@@ -9,6 +9,7 @@ tmp-elf/
 quad-core-elf/
 dual-core-elf/
 frontend/*.hi
+frontend/*.o
 frontend/litmus
 frontend/litmus-translate
 main.copy
