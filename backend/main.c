@@ -34,7 +34,10 @@ int main()
     //put_string("Observed outcomes:\n");
     log_display();
     put_string("Time\n");
-    //flush();
+
+    //signal tb that we are done
+    *(volatile uint32_t *) 0x90000000 = 1;
+    asm volatile ("fence");
   }
 
   return 0;
