@@ -9,5 +9,8 @@
 void put_char(char c);
 extern char const* HEAP_BASE;
 
+void plat_exit(int code);
+
+void plat_init_uart();
 
 #endif

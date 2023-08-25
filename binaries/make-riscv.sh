@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$1" = "" ]; then
-  echo "Usage: make-riscv.sh <path-to-litmus-files> [cores]"
+  echo "Usage: make-riscv.sh <path-to-litmus-files> <platform> [cores]"
   exit
 fi
 
@@ -14,8 +14,10 @@ n_compiling_errors=0
 #refers to the lw.aq and sw.rl that are still not 
 #defined by riscv spec
 n_no_opcode=0
+#target platform
+PLATFORM=$2
 #filter number of cores
-CORES=$2
+CORES=$3
 n_many_cores=0
 i=0
 
@@ -29,9 +31,9 @@ for FILE in $(find $1 -name "*.litmus" | grep -v "ATOMICS/CO\|HAND")
     n_many_cores=$((n_many_cores+1))
   else
     cp -r ../backend/ backend-tmp
-      if ../frontend/litmus $FILE backend-tmp/testcase.c backend-tmp/testcase.h $2; then
+      if ../frontend/litmus $FILE backend-tmp/testcase.c backend-tmp/testcase.h $3; then
            cd backend-tmp
-           ./make-riscv.sh
+           ./make-$PLATFORM.sh
            cd ..
            OUTFILE=`basename $FILE .litmus`.elf
            if cp backend-tmp/main.elf $OUTFILE; then

@@ -2,6 +2,9 @@
 
 #include "platform.h"
 #include "uart.h"
+#include "clint.h"
+#include "cheshire_regs.h"
+#include "util.h"
 
 // =========
 // DRAM Base
@@ -58,14 +61,15 @@ void put_char(char c)
   write_serial(c);
 }
 
-void exit(int code)
+void plat_exit(int code)
 {
-  // Write to to_host
-  *(volatile uint32_t *) 0x90000000 = 1;
+  *reg32((void*)0x3000000, CHESHIRE_SCRATCH_2_REG_OFFSET) = (code << 1) | 1;
   asm volatile ("fence");
 }
 
 void plat_init_uart()
 {
-  init_uart(50000000, 115200);
+  uint32_t rtc_freq = *reg32((void*)0x3000000, CHESHIRE_RTC_FREQ_REG_OFFSET);
+  uint64_t reset_freq = clint_get_core_freq(rtc_freq, 2500);
+  init_uart(reset_freq, 115200);
 }

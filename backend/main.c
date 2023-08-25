@@ -16,7 +16,7 @@ int main()
   if (me >= NUM_PROCESSES) while (1);
 
   if (me == 0) {
-    init_uart(50000000, 115200);
+    plat_init_uart();
     //put_string("Hello World!\n");
     log_init();
   }
@@ -36,8 +36,7 @@ int main()
     put_string("Time\n");
 
     //signal tb that we are done
-    *(volatile uint32_t *) 0x90000000 = 1;
-    asm volatile ("fence");
+    plat_exit(0);
   }
 
   return 0;
