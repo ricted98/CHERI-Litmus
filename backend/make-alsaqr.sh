@@ -1,11 +1,11 @@
 PLATFORM="alsaqr"
-[ -z "$RISCV" ] && RISCV="riscv -riscv64-gcc-8.5.0"
+[ -z "$RISCV" ] && RISCV="/usr/pack/riscv-1.0-kgf/riscv64-gcc-11.2.0"
 
-CC="${RISCV}${RISCV:+ }riscv64-unknown-elf-gcc"
-AS="${RISCV}${RISCV:+ }riscv64-unknown-elf-as"
-LD="${RISCV}${RISCV:+ }riscv64-unknown-elf-ld"
-OBJCOPY="${RISCV}${RISCV:+ }riscv64-unknown-elf-objcopy"
-OBJDUMP="${RISCV}${RISCV:+ }riscv64-unknown-elf-objdump"
+CC="$RISCV/bin/riscv64-unknown-elf-gcc"
+AS="$RISCV/bin/riscv64-unknown-elf-as"
+LD="$RISCV/bin/riscv64-unknown-elf-ld"
+OBJCOPY="$RISCV/bin/riscv64-unknown-elf-objcopy"
+OBJDUMP="$RISCV/bin/riscv64-unknown-elf-objdump"
 
 OPT="-O -fno-builtin"          #optimize even more and avoid to use standard c functions
 CFLAGS="$OPT -I. -I$PLATFORM -mcmodel=medany -g"  #include actuar directory to search directories
