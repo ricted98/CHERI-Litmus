@@ -1,16 +1,16 @@
 #!/bin/bash
 
-dest=run.log
-source=./log
+dest=litmus.log
+source=../hw-results
 
-rm $dest
+rm -f $dest
 touch $dest
 i=0
-for FILE in $(ls $source) 
-do 
+for FILE in $(ls $source)
+do
 
 	#check that the litmus test terminated correctly
-	if grep -q Time $source/$FILE; then 
+	if grep -q Time $source/$FILE; then
 		cat $source/$FILE >> $dest
 		echo "" >> $dest
 		i=$((i+1))
@@ -19,5 +19,5 @@ do
 	fi
 
 
-done 
+done
 echo "Num of tests = $i"
